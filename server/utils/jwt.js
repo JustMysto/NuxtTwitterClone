@@ -26,9 +26,11 @@ export const decodeRefreshToken = (token) => {
 	}
 }
 
-export const decodeAccesToken = (token) => {
+export const decodeAccessToken = (token) => {
 	const config = useRuntimeConfig()
 
+	return jwt.verify(token, config.jwtAccessSecret)
+	
 	try {
 		return jwt.verify(token, config.jwtAccessSecret)
 	} catch (error) {

@@ -1,5 +1,5 @@
 import UrlPattern from "url-pattern"
-import { decodeAccesToken } from "../utils/jwt"
+import { decodeAccessToken } from "../utils/jwt"
 import { getUserById } from "../db/users"
 
 export default defineEventHandler(async (event) => {
@@ -10,16 +10,16 @@ export default defineEventHandler(async (event) => {
 	const isHandledByThisMiddleware = endpoints.some(endpoint => {
 		const pattern = new UrlPattern(endpoint)
 
-		return pattern.match(event.req.url)
+		return pattern.match(event.node.req.url)
 	})
 
 	if (!isHandledByThisMiddleware) {
 		return
 	}
 
-	const token = event.req.headers['authorization']?.split(' '[1])
+	const token = event.node.req.headers['authorization']?.split(' ')[1]
 
-	const decoded = decodeAccesToken(token)
+	const decoded = decodeAccessToken(token)
 
 	if (!decoded) {
 		return sendError(event, createError({
@@ -27,8 +27,6 @@ export default defineEventHandler(async (event) => {
 			statusMessage: 'Unauthorized'
 		}))
 	}
-
-	const userId = decoded.userId
 
 	try {
 		const userId = decoded.userId
