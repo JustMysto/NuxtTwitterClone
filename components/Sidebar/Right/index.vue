@@ -1,6 +1,5 @@
 <template>
 	<div class="flex flex-col">
-		<!-- Preview Card : Whats Happening -->
 		<SidebarRightPreviewCard title="Whats Happening">
 			<SidebarRightPreviewCardItem v-for="whatsHappening in whatsHappeningItems">
 				<div>
@@ -10,8 +9,6 @@
 			</SidebarRightPreviewCardItem>
 		</SidebarRightPreviewCard>
 
-
-		<!-- Preview Card : Who to Follow -->
 		<SidebarRightPreviewCard title="Who to Follow">
 			<SidebarRightPreviewCardItem  v-for="whoToFollow in whoToFollowItems">
 				<div class="flex flex-row items-center justify-between p-2">
