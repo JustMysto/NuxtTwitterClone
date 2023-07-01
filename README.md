@@ -1,3 +1,4 @@
+![maxresdefault](https://github.com/JustMysto/NuxtTwitterClone/assets/50737163/7e2fb643-a04a-4cd5-bba1-513783a87b83)
 # Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
